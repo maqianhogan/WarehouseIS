@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<title>show all products</title>
+</head>
+<body>
+	<form th:action="@{/transfer}" method="get">
+		<input type="text" name="locationcode" value="transfer from">
+		<input type="text" name="code" value="product code">
+		<input type="text" name="quantity" value="quantity">
+		<input type="text" name="destination" value="transfer to">
+		<button type="submit">Go</button>
+	</form>
+
+	
+	
+	
+	
+</body>
+</html>

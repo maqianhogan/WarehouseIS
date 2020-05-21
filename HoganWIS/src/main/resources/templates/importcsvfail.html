@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<title>importcsv</title>
+</head>
+<body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<form method="post" action="">
+		<input type= "file" id="inputfile" />
+		<input type="submit" id="output"/>
+		<!--<input id="name" type="text" th:field="${product.name}"/><br/>
+		<input id="code" type="text" th:field="${product.code}"/><br/>
+		<input id="weight" type="text" th:field="${product.weight}"/><br/>-->
+	</form>
+	<script th:inline="javascript">
+		const filename = document.getElementById("inputfile").files[0];
+		$(document).ready(function(){
+			$('#output').click(function(){
+				var rdr = new FileReader();
+				rdr.onload = function(e){
+					var therows = e.target.result.split("\n");
+					for (var row = 0; row<therows.length; row++){
+						var columns = therows[row].split(",");
+						document.getElementById("name").value = columns[0];
+						document.getElementById("code").value = columns[1];
+						document.getElementById("weight").value = columns[2];
+					}
+				}
+				rdr.readAsText($("#inputfile")[0].files[0]);
+			});
+		});
+	</script>
+	
+	
+	
+	
+	
+	<!--<form action="" method="post">
+		Name: <input type="text" th:field="${product.name}"/><br/>
+		Code: <input type="text" th:field="${product.code}"/><br/>
+		Weight: <input type="text" th:field="${product.weight}"/><br/>
+		<button type="submit">Create product</button>
+	
+	
+	</form>-->
+	
+	
+</body>
+</html>
