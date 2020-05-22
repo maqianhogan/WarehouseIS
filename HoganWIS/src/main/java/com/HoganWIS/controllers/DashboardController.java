@@ -1,5 +1,7 @@
 package com.HoganWIS.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +20,24 @@ import com.HoganWIS.service.ProductService;
 @Controller
 public class DashboardController {
 	
+	@Autowired
+	private ProductService productService;
+	
+	
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String rootView () {
+	public String rootView (Model model) {
+		List<Product> productlist = productService.getProduct();
+		model.addAttribute("products", productlist);
 		return "index";
 	}
+	
+	@GetMapping("/index")
+	public String getindex(Model model) {
+		List<Product> productlist = productService.getProduct();
+		model.addAttribute("products", productlist);
+		return "index";
+	}
+	
 	
 	
 }

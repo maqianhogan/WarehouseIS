@@ -31,7 +31,14 @@ public class LocateService {
 				l.setCode(data[1]);
 				int num = Integer.parseInt(data[2]);
 				l.setQuantity(num);
-				locationRepo.save(l);
+				Long check = findID(data[0],data[1]);
+				if(check==null) {
+					locationRepo.save(l);
+				}
+				else {
+					locationRepo.deleteById(check);
+					locationRepo.save(l);
+				}
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

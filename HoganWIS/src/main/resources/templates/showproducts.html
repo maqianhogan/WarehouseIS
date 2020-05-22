@@ -2,11 +2,72 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 	<title>show all products</title>
+	<style>
+		#button{
+			padding-right: 40px;
+			padding-left: 40px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			color: black;
+			background-color: #4FF3F1;
+			border: 1px solid #000;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#main-header{
+			padding:10px;
+			background-color:#4FA1F3;
+			color:#fff;
+		}
+		table{
+  			border-collapse:collapse;
+  			width:50%;
+  		}
+		table, td, th{
+  			border:1px solid black;
+  		}
+  		th{
+  			height:50px;
+  		}
+  		td
+  		{
+  			vertical-align:bottom;
+  		}
+  		#txtSearch{
+  			margin:10px;
+  		}
+  		
+	</style>
 </head>
 <body>
+	<header id="main-header">
+		<h1>Wharehouse Inventory System</h1>
+	</header>
+	<form method="get" action="/index" style="float: left;">
+		<input type="submit" id="button" value="Home"/>
+	</form>
+	<form method="get" action="/importproductcsv" style="float: left;">
+		<input type="submit" id="button" value="Update Product Information"/>
+	</form>	
+	
+	<form method="get" action="/importlocationcsv" style="float: left;">
+		<input type="submit" id="button" value="Update Location Information"/>
+	</form>
+	
+	<form method="get" action="/showproducts" style="float: left;">
+		<input type="submit" id="button" value="View Investory Level"/>
+	</form>	
+	
+	<form method="get" action="/transfer">
+		<input type="submit" id="button" value="Transfer Investory"/>
+	</form>		
+
+
+
 	<form th:action="@{/showproducts}" method="get">
+		<label>Enter the product code to filter the Investory Information:</label></br>
 		<input id = "txtSearch" type="text" name="keyword">
-		<button type="submit">Go</button>
+		<button type="submit" placeholder="product code">Search</button>
 	</form>
 
 	

@@ -2,15 +2,77 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 	<title>show all products</title>
+	<style>
+		#button{
+			padding-right: 40px;
+			padding-left: 40px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			color: black;
+			background-color: #4FF3F1;
+			border: 1px solid #000;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#main-header{
+			padding:10px;
+			background-color:#4FA1F3;
+			color:#fff;
+		}
+		
+		.form{
+			padding:20px;
+			margin:auto;
+		}
+		
+		#inputbox{
+			width:60%;
+			padding:8px;
+		}
+		
+		#submitbut{
+			padding:10px;
+			margin-top:10px;
+		}
+	</style>
 </head>
 <body>
-	<form th:action="@{/transfer}" method="get">
-		<input type="text" name="locationcode" value="transfer from">
-		<input type="text" name="code" value="product code">
-		<input type="text" name="quantity" value="quantity">
-		<input type="text" name="destination" value="transfer to">
-		<button type="submit">Go</button>
+	<header id="main-header">
+		<h1>Wharehouse Inventory System</h1>
+	</header>
+	<form method="get" action="/index" style="float: left;">
+		<input type="submit" id="button" value="Home"/>
 	</form>
+	<form method="get" action="/importproductcsv" style="float: left;">
+		<input type="submit" id="button" value="Update Product Information"/>
+	</form>	
+	
+	<form method="get" action="/importlocationcsv" style="float: left;">
+		<input type="submit" id="button" value="Update Location Information"/>
+	</form>
+	
+	<form method="get" action="/showproducts" style="float: left;">
+		<input type="submit" id="button" value="View Investory Level"/>
+	</form>	
+	
+	<form method="get" action="/transfer">
+		<input type="submit" id="button" value="Transfer Investory"/>
+	</form>		
+
+
+	<div class="form">
+	<form th:action="@{/transfer}" method="get">
+		<label>Transfer Location:</label></br>
+		<input type="text" name="locationcode" placeholder="transfer from" id="inputbox"></br>
+		<label>Product code:</label></br>
+		<input type="text" name="code" placeholder="product code" id="inputbox"></br>
+		<label>Quantity:</label></br>
+		<input type="text" name="quantity" placeholder="quantity" id="inputbox"></br>
+		<label>Destination:</label></br>
+		<input type="text" name="destination" placeholder="transfer to" id="inputbox"></br>
+		<button type="submit" id="submitbut">Transfer</button>
+	</form>
+	</div>
 
 	
 	

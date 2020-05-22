@@ -1,25 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 	<title>WIS SYSTEM</title>
+	<style>
+		#button{
+			padding-right: 40px;
+			padding-left: 40px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			color: black;
+			background-color: #4FF3F1;
+			border: 1px solid #000;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#main-header{
+			padding:10px;
+			background-color:#4FA1F3;
+			color:#fff;
+		}
+		table{
+  			border-collapse:collapse;
+  			width:50%;
+  		}
+		table, td, th{
+  			border:1px solid black;
+  		}
+  		th{
+  			height:50px;
+  		}
+  		td
+  		{
+  			vertical-align:bottom;
+  		}
+</style>
+	</style>
 </head>
 <body>
-
-	<form method="get" action="/importproductcsv">
-		<input type="submit" id="output" value="go to import product"/>
+	<header id="main-header">
+		<h1>Wharehouse Inventory System</h1>
+	</header>
+	<form method="get" action="/index" style="float: left;">
+		<input type="submit" id="button" value="Home"/>
+	</form>
+	<form method="get" action="/importproductcsv" style="float: left;">
+		<input type="submit" id="button" value="Update Product Information"/>
 	</form>	
 	
-	<form method="get" action="/importlocationcsv">
-		<input type="submit" id="output" value="go to import location information"/>
+	<form method="get" action="/importlocationcsv" style="float: left;">
+		<input type="submit" id="button" value="Update Location Information"/>
 	</form>
 	
-	<form method="get" action="/showproducts">
-		<input type="submit" id="output" value="View Investory Level"/>
+	<form method="get" action="/showproducts" style="float: left;">
+		<input type="submit" id="button" value="View Investory Level"/>
 	</form>	
 	
 	<form method="get" action="/transfer">
-		<input type="submit" id="output" value="Transfer Investory"/>
+		<input type="submit" id="button" value="Transfer Investory"/>
 	</form>		
+	
+	<h2>The product list of your company</h2>
+	<table>
+		<thead>
+			<tr>
+				<!-- <th>id</th> -->
+				<th>Name</th>
+				<th>Product Code</th>
+				<th>Weight</th>
+			</tr>
+		</thead>
+		<tbody>
+			 <tr th:each="product:${products}">
+				<!-- <td th:text="${locate.id}"></td> -->
+				<td th:text="${product.name}"></td>
+				<td th:text="${product.code}"></td>
+				<td th:text="${product.weight}"></td>
+			</tr>	
+		</tbody>
+	</table>
 	
 </body>
 </html>

@@ -42,6 +42,10 @@ public class ProductService {
 		}
 	}
 	
+	public List<Product> getProduct(){
+		return productRepo.findAll();
+	}
+	
 	
 	
 	

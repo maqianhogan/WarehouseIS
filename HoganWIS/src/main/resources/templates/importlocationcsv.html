@@ -2,11 +2,54 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 	<title>importlocationcsv</title>
+	<style>
+		#button{
+			padding-right: 40px;
+			padding-left: 40px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			color: black;
+			background-color: #4FF3F1;
+			border: 1px solid #000;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#main-header{
+			padding:10px;
+			background-color:#4FA1F3;
+			color:#fff;
+		}
+		#output{
+			width:350px;
+		}
+	</style>
 </head>
 <body>
+	<header id="main-header">
+		<h1>Wharehouse Inventory System</h1>
+	</header>
+	<form method="get" action="/index" style="float: left;">
+		<input type="submit" id="button" value="Home"/>
+	</form>
+	<form method="get" action="/importproductcsv" style="float: left;">
+		<input type="submit" id="button" value="Update Product Information"/>
+	</form>	
+	
+	<form method="get" action="/importlocationcsv" style="float: left;">
+		<input type="submit" id="button" value="Update Location Information"/>
+	</form>
+	
+	<form method="get" action="/showproducts" style="float: left;">
+		<input type="submit" id="button" value="View Investory Level"/>
+	</form>	
+	
+	<form method="get" action="/transfer">
+		<input type="submit" id="button" value="Transfer Investory"/>
+	</form>		
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<form method="post" action="">
+		<label>Click the button to upload your location information:</label></br>
 		<input type="submit" id="output" value="update your location list"/>
 	</form>	
 	
